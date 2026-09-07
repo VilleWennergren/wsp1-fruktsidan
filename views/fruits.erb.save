@@ -1,0 +1,8 @@
+<h2>Alla våra frukter</h2>
+
+<% products.each do |product| %>
+  <article>
+    <h3><%= product['name'] %></h3>
+    <p><%= product['description'] %></p>
+    <p>Godhet: <%= product['tastiness'] %>/10</p>
+  </article>
