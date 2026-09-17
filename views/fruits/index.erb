@@ -1,15 +1,10 @@
 <h2>Alla frukter i butiken</h2>
 
 <ul>
-    
-  <% @fruits.each do |fruit| %>
-
-    <li>
-        <%= fruit["name"] %>
-        <%= fruit["tastiness"] %>
-        <%= fruit["description"] %> 
-    </li>
-
-  <% end %>
-
+<% @fruits.each do |fruit| %>
+<li>
+		<a href="/fruits/<%= fruit["id"]%>">
+				<%= fruit["name"] %></a>
+	</li>
+<% end %>
 </ul>

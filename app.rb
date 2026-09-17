@@ -19,5 +19,11 @@ class App < Sinatra::Base
   erb(:"fruits/index")
 end
 
+get '/fruits/:id' do | id |
+  @fruit = db.execute('SELECT * FROM products WHERE id=?',id).first
+  ap @fruit
+  erb(:"fruits/show")
+end
+
 
 end
