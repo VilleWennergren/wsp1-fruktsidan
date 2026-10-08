@@ -1,3 +1,11 @@
 <h2>Mer info om: <%= @fruit['name'] %></h2>
 
-<code> Smakbetyg: <%= @fruit['tastiness'] %> <br> Beskrivning: <%= @fruit['description'] %> </code>
+<code>
+  Betyg:
+  <% @fruit['tastiness'].to_i.times do %>
+    ⭐
+  <% end %>
+
+  <br>
+
+Beskrivning: <%= @fruit['description'] %></code>
