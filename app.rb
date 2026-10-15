@@ -19,9 +19,16 @@ class App < Sinatra::Base
   erb(:"fruits/index")
 end
 
-get '/fruits/new' do
+get '/fruits/:id/edit' do | id |
+  ap id 
+  @fruit = db.execute('SELECT * FROM products WHERE id=?',id).first 
+  erb(:"fruits/edit")
+end
+
+get '/fruits/:id/new' do
   erb(:"fruits/new")
 end 
+
 
 get '/fruits/:id' do | id |
   @fruit = db.execute('SELECT * FROM products WHERE id=?',id).first
@@ -43,5 +50,13 @@ post '/fruits' do
   redirect("/fruits")
 end 
 
+post '/fruits/:id/edit' do | id |
+  name = params["fruit_name"]
+  description = params["fruit_description"]
+  tastiness = params["fruit_tastiness"]
 
+  db.execute("UPDATE products SET name=?, description=?, tastiness=? WHERE id=?", [name, description, tastiness, id])
+  redirect("/fruits")
+  ap params
+end 
 end
