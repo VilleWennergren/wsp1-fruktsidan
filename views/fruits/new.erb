@@ -1,8 +1,30 @@
 <h2>Ny frukt</h2>
 
 <form action="/fruits" method="post">
-   <label>Frukt <input type="text" name="fruit_name"></label>
-   <label>Beskrivning <input type="text" name="fruit_description"></label>
-    <label>Betyg <input type="number" name="fruit_tastiness" min="1" max="10"></label>
-   <input type="submit" value="Spara">
+  <label>
+    Frukt
+    <input type="text" name="fruit_name" required>
+  </label>
+
+  <label>
+    Beskrivning
+    <input type="text" name="fruit_description">
+  </label>
+
+  <label>
+    Smakpoäng
+    <input type="number" name="fruit_tastiness" min="0" max="10">
+  </label>
+
+  <label>
+    Kategori
+    <select name="category_id">
+      <option value="">Ingen kategori</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category['id'] %>"><%= category['name'] %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Spara">
 </form>

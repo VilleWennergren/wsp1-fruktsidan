@@ -1,0 +1,21 @@
+<h2><%= @category['name'] %></h2>
+
+<p><%= @category['description'] %></p>
+
+<h3>Frukter i kategorin</h3>
+<% if @fruits.empty? %>
+  <p>Det finns inga frukter i den här kategorin ännu.</p>
+<% else %>
+  <ul>
+    <% @fruits.each do |fruit| %>
+      <li>
+        <a href="/fruits/<%= fruit['id'] %>"><%= fruit['name'] %></a>
+        <% unless fruit['description'].to_s.empty? %>
+          <p><%= fruit['description'] %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p><a href="/categories">Till alla kategorier</a></p>

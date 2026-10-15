@@ -6,6 +6,7 @@
 		<a href="/fruits/<%= fruit["id"]%>">
 				<%= fruit["name"] %>
 		</a>
+		
 		<form class="delete" action="/fruits/<%=fruit["id"]%>/delete" method="post">
        		<input type="submit" value="Ta bort">
    		</form>
@@ -16,4 +17,3 @@
 	</li>
 <% end %>
 </ul>
-

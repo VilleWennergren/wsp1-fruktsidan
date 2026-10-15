@@ -1,11 +1,20 @@
-<h2>Mer info om: <%= @fruit['name'] %></h2>
+<h2><%= @fruit['name'] %></h2>
 
-<code>
-  Betyg:
-  <% @fruit['tastiness'].to_i.times do %>
-    ⭐
+<p>
+  Smakpoäng:
+  <% @fruit['tastiness'].to_i.times do %>⭐<% end %>
+  <% if @fruit['tastiness'].to_i.zero? %>Inget betyg ännu<% end %>
+</p>
+
+<p>Beskrivning: <%= @fruit['description'] %></p>
+
+<p>
+  Kategori:
+  <% if @category %>
+    <a href="/categories/<%= @category['id'] %>"><%= @category['name'] %></a>
+  <% else %>
+    Ingen kategori
   <% end %>
+</p>
 
-  <br>
-
-Beskrivning: <%= @fruit['description'] %></code>
+<p><a href="/fruits">Till alla frukter</a></p>

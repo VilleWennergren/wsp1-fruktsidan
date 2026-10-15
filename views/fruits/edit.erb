@@ -1,13 +1,34 @@
 <h2>Uppdatera frukt</h2>
 
-<code><form action="/fruits/<%= @fruit['id']%>/edit" method="post">
-<label>Frukt 
- <input type="text" name="fruit_name" value="<%= @fruit['name']%>">
-</label><label>Beskrivning 
- <input type="text" name="fruit_description" value="<%= @fruit['description']%>">
-</label><label>smakpoäng
- <input type="number" min="0" max="10" name="fruit_tastiness" value="<%= @fruit['tastiness']%>"> 
-</label>
-<input type="submit" value="Uppdatera">
+<h2>Uppdatera frukt</h2>
+
+<form action="/fruits/<%= @fruit['id'] %>/edit" method="post">
+  <label>
+    Frukt
+    <input type="text" name="fruit_name" value="<%= @fruit['name'] %>" required>
+  </label>
+
+  <label>
+    Beskrivning
+    <input type="text" name="fruit_description" value="<%= @fruit['description'] %>">
+  </label>
+
+  <label>
+    Smakpoäng
+    <input type="number" min="0" max="10" name="fruit_tastiness" value="<%= @fruit['tastiness'] %>">
+  </label>
+
+  <label>
+    Kategori
+    <select name="category_id">
+      <option value="">Ingen kategori</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category['id'] %>" <%= 'selected' if category['id'] == @fruit['category_id'] %>>
+          <%= category['name'] %>
+        </option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="submit" value="Uppdatera">
 </form>
-</code>

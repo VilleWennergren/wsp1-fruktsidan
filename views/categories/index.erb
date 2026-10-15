@@ -1,0 +1,16 @@
+<h2>Alla kategorier</h2>
+
+<% if @categories.empty? %>
+  <p>Det finns inga kategorier ännu.</p>
+<% else %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li>
+        <h3><a href="/categories/<%= category['id'] %>"><%= category['name'] %></a></h3>
+        <% unless category['description'].to_s.empty? %>
+          <p><%= category['description'] %></p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
