@@ -8,12 +8,16 @@
 <% else %>
   <ul>
     <% @fruits.each do |fruit| %>
+
       <li>
-        <a href="/fruits/<%= fruit['id'] %>"><%= fruit['name'] %></a>
-        <% unless fruit['description'].to_s.empty? %>
-          <p><%= fruit['description'] %></p>
-        <% end %>
+
+       <code> <a href="/fruits/<%= fruit['id'] %>"><%= fruit['name'] %></a> 
+        
+        <%= fruit['description'] %></code>
+
+
       </li>
+      
     <% end %>
   </ul>
 <% end %>
